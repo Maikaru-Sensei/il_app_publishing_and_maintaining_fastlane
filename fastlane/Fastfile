@@ -1,0 +1,32 @@
+default_platform(:android)
+
+PROJECT_ROOT = File.expand_path("..", __dir__)
+AAB_PATH = File.join(PROJECT_ROOT, "build/app/outputs/bundle/release/app-release.aab")
+
+platform :android do
+
+  desc "Run Flutter analyze"
+  lane :analyze do
+    sh("cd '#{PROJECT_ROOT}' && flutter analyze")
+  end
+
+  desc "Run Flutter unit tests"
+  lane :test do
+    sh("cd '#{PROJECT_ROOT}' && flutter test")
+  end
+
+  desc "Build release AAB and deploy to Google Play Internal Testing"
+  lane :deploy do
+    analyze
+    test
+
+    sh("cd '#{PROJECT_ROOT}' && flutter build appbundle --release")
+
+    upload_to_play_store(
+      track: "internal",
+      aab: AAB_PATH,
+      release_status: "draft",
+    )
+  end
+
+end

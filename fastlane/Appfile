@@ -1,0 +1,3 @@
+package_name("at.fhooe.app_publishing")
+
+json_key_file("fastlane/google-play-key.json")

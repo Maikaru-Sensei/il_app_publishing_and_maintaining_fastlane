@@ -46,6 +46,10 @@ linked_*.ds
 unlinked.ds
 unlinked_spec.ds
 
+# Fastlane
+fastlane/google-play-key.json
+fastlane/report.xml
+
 # Android related
 **/android/**/gradle-wrapper.jar
 .gradle/
@@ -117,3 +121,5 @@ app.*.symbols
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 !/dev/ci/**/Gemfile.lock
+
+.idea
