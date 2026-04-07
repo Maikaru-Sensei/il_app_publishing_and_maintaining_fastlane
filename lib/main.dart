@@ -65,7 +65,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               Text(
-                'App Publishing and Maintaining',
+                "App Publishing and Maintaining",
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
